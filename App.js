@@ -1,3 +1,12 @@
-import App from './app/index';
+import React, { Component } from 'react';
 
-export default App;
+import Home from './app/index';
+
+export default class App extends Component {
+  render() {
+    return (
+      <Home />
+    );
+  }
+}
+
