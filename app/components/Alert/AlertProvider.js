@@ -1,35 +1,41 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, {Component} from 'react';
+import {View, StyleSheet} from 'react-native';
 import DropdownAlert from 'react-native-dropdownalert';
 
+const styles = StyleSheet.create ({
+  view: {
+    flex: 1,
+  },
+});
+
 class AlertProvider extends Component {
-  static get childContextTypes() {
+  static get childContextTypes () {
     return {
       alertWithType: PropTypes.func,
       alert: PropTypes.func,
     };
   }
 
-  static get propTypes() {
+  static get propTypes () {
     return {
       children: PropTypes.any,
     };
   }
 
-  getChildContext() {
+  getChildContext () {
     return {
-      alert: (...args) => this.dropdown.alert(...args),
-      alertWithType: (...args) => this.dropdown.alertWithType(...args),
+      alert: (...args) => this.dropdown.alert (...args),
+      alertWithType: (...args) => this.dropdown.alertWithType (...args),
     };
   }
 
-  render() {
+  render () {
     return (
-      <View style=>
-        {React.Children.only(this.props.children)}
+      <View style={styles.view}>
+        {React.Children.only (this.props.children)}
         <DropdownAlert
-          ref={(ref) => {
+          ref={ref => {
             this.dropdown = ref;
           }}
         />

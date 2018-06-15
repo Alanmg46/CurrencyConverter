@@ -83,7 +83,7 @@ class Logo extends Component {
           <Animated.Image
             resizeMode="contain"
             style={imageStyles}
-            source={require('./images/logo.png')}
+            source={require('./images/logo.gif')}
           />
         </Animated.View>
         <Text style={styles.text}>Currency Converter</Text>
